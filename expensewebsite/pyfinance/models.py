@@ -10,4 +10,4 @@ CATEGORY = (
 class Compras(models.Model):
     category = models.CharField(max_length=20, choices=CATEGORY)
     date = models.DateField()
-    value = models.IntegerField()
+    value = models.FloatField()
