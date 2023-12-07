@@ -67,9 +67,9 @@
         var myChart = new Chart(ctx, {
           type: 'line',
           data: {
-            labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho"],
+            labels: [{% for month in range_month %} '{{month}}',{% endfor %}],
             datasets: [{
-              data: [0, 21345, 18483, 24003, 23489, 24092, 12034],
+              data: [{% for key, value in range_month.items %} {{ value }},{% endfor %}],
               lineTension: 0,
               backgroundColor: 'transparent',
               borderColor: '#007bff',
