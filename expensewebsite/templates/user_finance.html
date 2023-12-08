@@ -1,0 +1,33 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static "img/favicon.ico" %}">
+    <title>Finance.Py</title>
+    <link href="{% static 'css/bootstrap.min.user.css' %}" rel="stylesheet">
+    <link href="{% static "css/signin.css" %}" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+    <form class="form-signin">
+      <img class="mb-4" src="{% static "img/money.png" %}" alt="" width="110" height="90">
+      <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+      <label for="inputEmail" class="sr-only">Username</label>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2022-2023</p>
+    </form>
+  </body>
+</html>
