@@ -1,26 +1,15 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .forms import ComprasForm
-from .models import Compras
+from .models import Compras, Month
 from .matplot import generate_pie_chart
 from datetime import datetime
+from django.contrib import messages
 
-range_month ={
-    'Janeiro':0.0,
-    'Fevereiro':0.0,
-    'Março':0.0,
-    'Abril':0.0,
-    'Maio':0.0,
-    'Junho':0.0,
-    'Julho':0.0,
-    'Agosto':0.0,
-    'Setembro':0.0,
-    'Outubro':0.0,
-    'Novembro':0.0,
-    'Dezembro':0.0,
-}
+
 
 def index(request):
     list_category = Compras.objects.all()
+    range_month = Month.objects.all()
     categories = [item.category for item in list_category]
     values = [item.value for item in list_category]
     chart_data = generate_pie_chart(categories, values)
@@ -39,58 +28,29 @@ def shopping(request):
         value = float(request.POST.get('value').replace(",", "."))
 
         data_obj = datetime.strptime(date, '%Y-%m-%d')
+        month_name = data_obj.strftime('%B')
 
-        month_number = data_obj.month
-        if month_number == 1:
-            range_month['Janeiro']+=value
+        dados_mensais, created = Month.objects.get_or_create(
+            month = month_name,
+            defaults={'value_all':value}
+        )
 
-        if month_number == 1:
-            range_month['Fevereiro']+=value
+        if not created:
+            dados_mensais.value_all += value
+       
+        dados_mensais.save()
 
-        if month_number == 1:
-            range_month['Março']+=value
-
-        if month_number == 1:
-            range_month['Abril']+=value
-        
-        if month_number == 1:
-            range_month['Maio']+=value
-        
-        if month_number == 1:
-            range_month['Junho']+=value
-        
-        if month_number == 1:
-            range_month['Julho']+=value
-        
-        if month_number == 1:
-            range_month['Agosto']+=value
-
-        if month_number == 1:
-            range_month['Setembro']+=value
-
-        if month_number == 1:
-            range_month['Outubro']+=value
-
-        if month_number == 1:
-            range_month['Novembro']+=value
-            
-        if month_number == 11:
-            range_month['Dezembro']+=value
-
-
-            print(range_month)
-        existing_category = get_object_or_404(Compras, category=category)
-
+        existing_category = Compras.objects.filter(category=category).first()
 
         if existing_category:
             existing_category.value += value
-            #existing_category.save()
+            existing_category.save()
         else:
-            # Compras.objects.create(
-            #     category=category,
-            #     date=date,
-            #     value= value
-            # )
-            ...
+            Compras.objects.create(
+                category=category,
+                date=date,
+                value= value
+            )
+        
     return render(request, "shopping.html", {'form': form})
 
