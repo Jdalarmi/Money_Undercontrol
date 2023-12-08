@@ -60,3 +60,5 @@ def shopping(request):
         
     return render(request, "shopping.html", {'form': form})
 
+def sale(request):
+    return render(request, 'sale.html')
