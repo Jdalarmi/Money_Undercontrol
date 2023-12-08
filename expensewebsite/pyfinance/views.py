@@ -25,7 +25,12 @@ def shopping(request):
     if request.method == 'POST':
         category = request.POST.get('category')
         date = request.POST.get('date')
-        value = float(request.POST.get('value').replace(",", "."))
+        if request.POST.get('value') == '':
+            messages.error(request, f'POR FAVOR INSIRA O CAMPO VALOR!!')
+            return redirect('shopping')
+        else:
+            value = float(request.POST.get('value').replace(",", "."))
+
 
         data_obj = datetime.strptime(date, '%Y-%m-%d')
         month_name = data_obj.strftime('%B')
@@ -51,6 +56,7 @@ def shopping(request):
                 date=date,
                 value= value
             )
+        messages.success(request, "ADICIONADO COM SUCESSO!!!")
         
     return render(request, "shopping.html", {'form': form})
 

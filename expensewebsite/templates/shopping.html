@@ -13,6 +13,13 @@
     <div class="container mt-5">
         <form method="post" action="{% url 'shopping' %}">
             {% csrf_token %}
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="id_category">Categoria</label>
