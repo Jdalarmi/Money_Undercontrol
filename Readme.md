@@ -57,7 +57,7 @@ Instale as dependencias do projeto ```pip install -r requirements.txt```
 
 2. Incluir funcionalidade para excluir categorias e acrescentar
 
-3 - E possivies correções de erros do projeto atual visto que esta em construção
+3. E possivies correções de erros do projeto atual visto que esta em construção
 
 
 
