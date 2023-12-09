@@ -4,9 +4,9 @@ from .models import Compras, Month
 from .matplot import generate_pie_chart
 from datetime import datetime
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
-
-
+@login_required
 def index(request):
     list_category = Compras.objects.all()
     range_month = Month.objects.all()
@@ -20,6 +20,7 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
+@login_required
 def shopping(request):
     form = ComprasForm(request.POST)
     if request.method == 'POST':
@@ -60,5 +61,6 @@ def shopping(request):
         
     return render(request, "shopping.html", {'form': form})
 
+@login_required
 def sale(request):
     return render(request, 'sale.html')

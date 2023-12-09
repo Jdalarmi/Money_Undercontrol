@@ -13,13 +13,17 @@
   </head>
 
   <body class="text-center">
-    <form class="form-signin">
+    <form method='post' class="form">
+      {% csrf_token %}
       <img class="mb-4" src="{% static "img/money.png" %}" alt="" width="110" height="90">
       <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-      <label for="inputEmail" class="sr-only">Username</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+      <label for="username" class="sr-only">Username</label>
+      <input type="username" id="username" name="username" class="form-control" placeholder="Username">
+      <br>
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" id="password" name="password"class="form-control" placeholder="Password" required>
+
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
@@ -30,6 +34,6 @@
       <br>
       <p class="mt-5 mb-3 text-muted">&copy; 2022-2023</p>
     </form>
-    <a class="btn btn-primary pt-2 pl-4 pr-4 text-light" style="position:absolute;top:620px;width:300px"  href="{% url "register-user-finance" %}"> Register </a>
+    <a class="btn btn-primary pt-2 pl-1 pr-1 text-light" style="position:absolute;top:620px;width:200px"  href="{% url "register-user-finance" %}"> Register </a>
     </body>
 </html>
