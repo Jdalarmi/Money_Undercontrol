@@ -24,7 +24,17 @@ A ideia é que de uma maneira simples o usuario possa ter controle e dimensão d
 <div align="center"> 
 
 <img align="left" alt="python" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
+
+<img align="left" alt="django" height="30" width="30" src="https://github.com/marwin1991/profile-technology-icons/assets/62091613/9bf5650b-e534-4eae-8a26-8379d076f3b4">
+
+<img align="left" alt="html" height="30" width="30" src="https://user-images.githubusercontent.com/25181517/192158954-f88b5814-d510-4564-b285-dff7d6400dad.png">
+
+<img align="left" alt="css" height="30" width="30" src="https://user-images.githubusercontent.com/25181517/183898674-75a4a1b1-f960-4ea9-abcb-637170a00a75.png">
+
+<img align="left" alt="bootstrap" height="30" width="30" src="https://user-images.githubusercontent.com/25181517/183898054-b3d693d4-dafb-4808-a509-bab54cf5de34.png">
+
 <img align="left" alt="Postgresql" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg">
+
 <img align="left" alt="http" height="30" width="30" src="https://user-images.githubusercontent.com/25181517/192107854-765620d7-f909-4953-a6da-36e1ef69eea6.png">
 </div>
 <br/><br/>
@@ -43,11 +53,11 @@ Instale as dependencias do projeto ```pip install -r requirements.txt```
 <br/>
 
 ## 🔮 Implementações futuras
-1. Implementar nova funcionalidade que consulta valor que pessoa tem de saldo no ato da transação
+1. Implementar gestão de contas a pagar de uma forma dinamica que envie mensagens de texto com automação quando estiver perto da data de vencimento
 
-2. Negar transação quando saldo estiver abaixo do valor da compra.
+2. Incluir funcionalidade para excluir categorias e acrescentar
 
-3. Implementar autenticação e login para usuarios.
+3 - E possivies correções de erros do projeto atual visto que esta em construção
 
 
 
