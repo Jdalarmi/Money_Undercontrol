@@ -6,10 +6,11 @@ from datetime import datetime
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-@login_required
+@login_required(login_url='user_finance')
 def index(request):
-    list_category = Compras.objects.all()
-    range_month = Month.objects.all()
+    user = request.user
+    list_category = Compras.objects.filter(user=user)
+    range_month = Month.objects.filter(user=user)
     categories = [item.category for item in list_category]
     values = [item.value for item in list_category]
     chart_data = generate_pie_chart(categories, values)
@@ -20,10 +21,11 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
-@login_required
+@login_required(login_url='user_finance')
 def shopping(request):
     form = ComprasForm(request.POST)
     if request.method == 'POST':
+        user = request.user
         category = request.POST.get('category')
         date = request.POST.get('date')
         if request.POST.get('value') == '':
@@ -37,6 +39,7 @@ def shopping(request):
         month_name = data_obj.strftime('%B')
 
         dados_mensais, created = Month.objects.get_or_create(
+            user=user,
             month = month_name,
             defaults={'value_all':value}
         )
@@ -46,13 +49,14 @@ def shopping(request):
        
         dados_mensais.save()
 
-        existing_category = Compras.objects.filter(category=category).first()
+        existing_category = Compras.objects.filter(category=category, user=request.user).first()
 
         if existing_category:
             existing_category.value += value
             existing_category.save()
         else:
             Compras.objects.create(
+                user=user,
                 category=category,
                 date=date,
                 value= value

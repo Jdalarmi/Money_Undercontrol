@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib import auth
 
+
 def user_finance(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -28,7 +29,7 @@ def register_user_finance(request):
         print(user)
 
         user.save() 
-        return redirect('user-finance')
+        return redirect('user_finance')
     return render(request, 'register.html')
 
 def logout_user_finance(request):
