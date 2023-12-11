@@ -13,10 +13,11 @@
 {% block content %} 
     <img style="width:500px;position:absolute; left:200px" src="{{ chart_data }}" alt="Gráfico de Pizza">
     <div class="col-md-4 mb-1" style="left:650px; top:50px">
-        <label for="value">Valor do Pagamento:</label>
-        <input type="text" class="form-control" id="value" name="value">
-        <br>   
-        <form action="">
+        <form method="post" action="{% url "payment" %}">
+            {% csrf_token %}
+            <label for="value" name="number">Valor do Pagamento:</label>
+            <input type="text" class="form-control" id="value" name="number">
+            <br>   
             <button class="btn btn-success" type="submit">Pagar</button>
         </form>
     </div>
