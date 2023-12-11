@@ -86,9 +86,15 @@ def payment(request):
         number = i.payment_number
     
     values = [total, number ]
+
+    dif = total - number
+
     chart_data = generate_chart_bar(categories, values)
    
     context={
         'chart_data':chart_data,
+        'total':total,
+        'number':number,
+        'dif':dif
     }
     return render(request, 'payment.html', context)
