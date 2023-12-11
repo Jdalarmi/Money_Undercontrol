@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Document</title>
+    <title>$ Money-Undercontrol $</title>
 </head>
 <body>
 {% block content %}
@@ -25,7 +25,9 @@
               </div>
             </div>
             <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+            <hr>
             <img src="{{ chart_data }}" alt="Gráfico de Pizza">
+            <hr>
             <h2>Categorias de Gastos</h2>
             <div class="table-responsive">
               <table class="table table-bordered table-dark">
@@ -40,6 +42,7 @@
                       <tr>
                         <td>{{item.category}}</td>
                         <td>R$:{{item.value}}</td>
+                        <td><a class="btn btn-success" href="">Editar</a></td>
                       </tr>
                   {% endfor %}
                 </tbody>
