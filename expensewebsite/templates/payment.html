@@ -1,0 +1,25 @@
+{% extends "partials/base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Payment</title>
+</head>
+<body>
+{% block content %} 
+    <img style="width:500px;position:absolute; left:200px" src="{{ chart_data }}" alt="Gráfico de Pizza">
+    <div class="col-md-4 mb-1" style="left:650px; top:50px">
+        <label for="value">Valor do Pagamento:</label>
+        <input type="text" class="form-control" id="value" name="value">
+        <br>   
+        <form action="">
+            <button class="btn btn-success" type="submit">Pagar</button>
+        </form>
+    </div>
+{% endblock %}
+</body>
+</html>

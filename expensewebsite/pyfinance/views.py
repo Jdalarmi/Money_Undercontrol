@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .forms import ComprasForm
 from .models import Compras, Month
-from .matplot import generate_pie_chart
+from .matplot import generate_pie_chart, generate_chart_bar
 from datetime import datetime
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -66,5 +66,12 @@ def shopping(request):
     return render(request, "shopping.html", {'form': form})
 
 @login_required
-def sale(request):
-    return render(request, 'sale.html')
+def payment(request):
+    categories = ["Gastos", "Pagar"]
+    values = [1000, 0]
+    chart_data = generate_chart_bar(categories, values)
+
+    context={
+        'chart_data':chart_data
+    }
+    return render(request, 'payment.html', context)
