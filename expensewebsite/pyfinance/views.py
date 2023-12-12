@@ -69,12 +69,14 @@ def shopping(request):
 @login_required (login_url='user_finance')
 def payment(request):
     if request.method == 'POST':
-        payment_value = float(request.POST.get('number'))
+        payment_value = float(request.POST.get('number').replace(",", "."))
         last_object = Month.objects.last()
 
         if last_object:
             last_object.payment_number += payment_value
-
+            if last_object.payment_number > last_object.value_all:
+                messages.error(request, 'Não é possivel pagar valor maior que seu gasto do mês')
+                return redirect('payment')
             last_object.save()
 
     user = request.user
@@ -91,6 +93,7 @@ def payment(request):
     values = [total, number ]
 
     dif = total - number
+      
 
     chart_data = generate_chart_bar(categories, values)
    

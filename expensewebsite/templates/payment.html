@@ -16,6 +16,13 @@
     <div class="col-md-4 mb-1" style="left:650px; top:50px">
         <form method="post" action="{% url "payment" %}">
             {% csrf_token %}
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
             <label for="value" name="number">Valor do Pagamento:</label>
             <input type="text" class="form-control" id="value" name="number" placeholder="Exemplo:100">
             <br>   
@@ -32,7 +39,7 @@
         <div class="col-md-4 mb-1" style="top:400px; right: -300px; text-align:center">
             <i class="warning-icon">&#9888;</i>
             <h1>Contas Atrasadas!</h1>
-            <h1>R$:-{{dif}}</h1>
+            <h1>R$:(-{{dif|floatformat}})</h1>
             <p>Atenção! Algumas contas estão atrasadas. Por favor, regularize a situação o mais rápido possível.</p>
         </div>
     {% else %}
