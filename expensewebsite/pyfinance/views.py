@@ -65,13 +65,36 @@ def shopping(request):
         
     return render(request, "shopping.html", {'form': form})
 
-@login_required
-def payment(request):
-    categories = ["Gastos", "Pagar"]
-    values = [1000, 0]
-    chart_data = generate_chart_bar(categories, values)
 
+@login_required (login_url='user_finance')
+def payment(request):
+    if request.method == 'POST':
+        payment_value = float(request.POST.get('number'))
+        last_object = Month.objects.last()
+
+        if last_object:
+            last_object.payment_number += payment_value
+
+            last_object.save()
+
+    user = request.user
+    values = Month.objects.filter(user=user)
+    categories = ["Gastos", "Pagar"]
+    total = 0
+    for i in values:
+        total+= i.value_all
+        number = i.payment_number
+    
+    values = [total, number ]
+
+    dif = total - number
+
+    chart_data = generate_chart_bar(categories, values)
+   
     context={
-        'chart_data':chart_data
+        'chart_data':chart_data,
+        'total':total,
+        'number':number,
+        'dif':dif
     }
     return render(request, 'payment.html', context)
