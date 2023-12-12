@@ -81,10 +81,13 @@ def payment(request):
     values = Month.objects.filter(user=user)
     categories = ["Gastos", "Pagar"]
     total = 0
-    for i in values:
-        total+= i.value_all
-        number = i.payment_number
-    
+    if values:
+        for i in values:
+            total = i.value_all
+            number = i.payment_number
+    else:
+        messages.error(request, 'Por favor insira valores no mês que você esta para acessar "Pagamento"')
+        return redirect('shopping')
     values = [total, number ]
 
     dif = total - number

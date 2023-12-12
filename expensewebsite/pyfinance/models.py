@@ -18,4 +18,4 @@ class Month(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     month = models.CharField(max_length=20)
     value_all = models.FloatField()
-    payment_number = models.FloatField()
+    payment_number = models.FloatField(null=True, default=0)
