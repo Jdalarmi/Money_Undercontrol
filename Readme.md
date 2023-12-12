@@ -17,6 +17,8 @@ Este é um projeto pessoal que reflete um pouco da minha essência. Tudo foi cri
 3 - Visualizar através de um gráfico de linha a evolução dos gastos a cada mês para comparar.
 4 - Visualizar no dashboard as porcentagens gastas durante o ano por categoria.
 5 - Tabela com o valor total de cada categoria.
+6 - Funcionalidade de pagamento, usuario pode ver valor gasto do mês e ir adicionando pagamento.
+7 - Opcão de ver mensagem abaixo se as contas estão atrasadas ou em dia.
 <br/>
 
 ## 📡 Tecnologias utilizadas 
