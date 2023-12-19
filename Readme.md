@@ -9,16 +9,14 @@
 
 Este é um projeto pessoal que reflete um pouco da minha essência. Tudo foi criado a partir de ideias e conhecimentos sobre mercado e gestão financeira. A proposta é proporcionar ao usuário um controle e compreensão simples de seus gastos a cada mês. O objetivo é oferecer uma experiência intuitiva e eficaz para que o usuário possa acompanhar e avaliar suas finanças de forma prática.
 
-<br/>
-
 ## 🛠️ Funcionalidades
-1 - Autenticação e permissão, onde cada usuário tem seu próprio controle financeiro.
-2 - Cadastrar uma compra por categorias pré-definidas com data e valor.
-3 - Visualizar através de um gráfico de linha a evolução dos gastos a cada mês para comparar.
-4 - Visualizar no dashboard as porcentagens gastas durante o ano por categoria.
-5 - Tabela com o valor total de cada categoria.
-6 - Funcionalidade de pagamento, usuario pode ver valor gasto do mês e ir adicionando pagamento.
-7 - Opcão de ver mensagem abaixo se as contas estão atrasadas ou em dia.
+1. Autenticação e permissão, onde cada usuário tem seu próprio controle financeiro.
+2. Cadastrar uma compra por categorias pré-definidas com data e valor.
+3. Visualizar através de um gráfico de linha a evolução dos gastos a cada mês para comparar.
+4. Visualizar no dashboard as porcentagens gastas durante o ano por categoria.
+5. Tabela com o valor total de cada categoria.
+6. Funcionalidade de pagamento, usuario pode ver valor gasto do mês e ir adicionando pagamento.
+7. Opcão de ver mensagem abaixo se as contas estão atrasadas ou em dia.
 <br/>
 
 ## 📡 Tecnologias utilizadas 
@@ -46,17 +44,17 @@ A preparação do ambiente consiste em instalar as tecnologias citadas anteriorm
 
 Abra terminal do seu sistema e execue comando ````git clone (url do projeto)``
 
-Para instalar o Django você pode usar comando ```pip install django```
-
 Instale as dependencias do projeto ```pip install -r requirements.txt```
+
+Execute as migrações ```python manage.py migrate```
 
 
 <br/>
 
 ## 🔮 Implementações futuras
-1. Implementar gestão de contas a pagar de uma forma dinamica que envie mensagens de texto com automação quando estiver perto da data de vencimento
+1. Ajustar importação do grafico usando RabbitMQ.
 
-2. Incluir funcionalidade para excluir categorias e acrescentar
+2. Incluir funcionalidade para excluir categorias e acrescentar novas
 
 3. E possivies correções de erros do projeto atual visto que esta em construção
 
