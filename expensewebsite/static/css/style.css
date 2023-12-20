@@ -1,6 +1,39 @@
 body {
     font-size: .875rem;
   }
+  @media (max-width: 767.98px) {
+    body {
+        font-size: 0.75rem;
+    }
+
+    .navbar-brand {
+        font-size: 0.9rem;
+    }
+
+    .sidebar {
+        position: relative;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .sidebar-sticky {
+        position: static;
+        height: auto;
+        padding-top: 0;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
+
+    .navbar .form-control {
+        padding: .5rem 1rem;
+    }
+
+    /* Add more specific styles for smaller screens if needed */
+}
   
   .feather {
     width: 16px;
