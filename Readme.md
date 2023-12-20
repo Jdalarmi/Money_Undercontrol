@@ -7,7 +7,7 @@
 
 ## 📖  Descrição
 
-Este é um projeto pessoal que reflete um pouco da minha essência. Tudo foi criado a partir de ideias e conhecimentos sobre mercado e gestão financeira. A proposta é proporcionar ao usuário um controle e compreensão simples de seus gastos a cada mês. O objetivo é oferecer uma experiência intuitiva e eficaz para que o usuário possa acompanhar e avaliar suas finanças de forma prática.
+Este é um projeto pessoal que reflete gosto pessoal por gestão financeira. Tudo foi criado a partir de ideias e conhecimentos sobre mercado e gestão financeira. A proposta é proporcionar ao usuário um controle e compreensão simples de seus gastos a cada mês. O objetivo é oferecer uma experiência intuitiva e eficaz para que o usuário possa acompanhar e avaliar suas finanças de forma prática.
 
 <br/>
 
